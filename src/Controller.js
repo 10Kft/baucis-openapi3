@@ -138,7 +138,7 @@ module.exports = function () {
     var rBody = buildRequestBodyFor(isInstance, verb, resourceName);
     if (rBody) {
       res.requestBody = rBody;
-    } 
+    }
     if (res.parameters.length === 0) {
       delete(res.parameters);
     }
@@ -298,7 +298,7 @@ module.exports = function () {
       //Choice (1. embed schema here or 2. reference and publish as a root definition)
       property.type = 'array';
       property.items = {
-        //2. reference 
+        //2. reference
         $ref: '#/components/schemas/' + definitionName + utils.capitalize(name)
       };
     } else {
@@ -405,7 +405,7 @@ module.exports = function () {
     mergePaths(oaSchema, schema.paths, definitionName);
     mergePaths(oaSchema, schema.virtuals, definitionName);
 
-    //remove empty arrays -> OpenAPI 3.0 validates 
+    //remove empty arrays -> OpenAPI 3.0 validates
     if (oaSchema.required.length === 0) {
       delete(oaSchema.required);
     }
@@ -479,7 +479,6 @@ module.exports = function () {
     if (methods.indexOf('get') > -1) {
       buildOperation(paths[collectionPath], 'collection', 'get');
     }
-    
     if (methods.indexOf('post') > -1) {
       buildOperation(paths[collectionPath], 'collection', 'post');
     }
