@@ -381,9 +381,9 @@ module.exports = function () {
   }
 
   function warnInvalidType(name, path) {
-    console.log('Warning: That field type is not yet supported in baucis OpenAPI definitions, using "string."');
-    console.log('Path name: %s.%s', utils.capitalize(controller.model().singular()), name);
-    console.log('Mongoose type: %s', path.options.type);
+    //console.log('Warning: That field type is not yet supported in baucis OpenAPI definitions, using "string."');
+    //console.log('Path name: %s.%s', utils.capitalize(controller.model().singular()), name);
+    //console.log('Mongoose type: %s', path.options.type);
   }
 
   function mergePaths(oaSchema, pathsCollection, definitionName) {
