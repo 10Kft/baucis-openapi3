@@ -208,8 +208,8 @@ module.exports = function () {
       return null;
     }
     if (type === Number ||
-      type === Schema.Types.Decimal128 ||
-      type instanceof Schema.Types.Decimal128) {
+      type === mongoose.Schema.Types.Decimal128 ||
+      type instanceof mongoose.Schema.Types.Decimal128) {
       return 'number';
     }
     if (type === Boolean ||
