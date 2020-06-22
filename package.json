@@ -1,6 +1,6 @@
 {
   "name": "baucis-openapi3",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Generate customizable OpenAPI version 3.0.0 definitions for your Baucis REST API.",
   "homepage": "https://github.com/metadevpro/baucis-openapi3",
   "repository": {
@@ -26,10 +26,6 @@
   "dependencies": {
     "deco": "~0.12.3"
   },
-  "peerDependencies": {
-    "mongoose": ">=3 <5",
-    "baucis": "^1.0.0"
-  },
   "devDependencies": {
     "async": "^2.6.2",
     "baucis": "~1.6.8",
@@ -39,7 +35,7 @@
     "expect.js": "~0.3.1",
     "express": "~4.16.4",
     "mocha": "~6.0.2",
-    "mongoose": "^4.12.4",
+    "mongoose": "~5.9.19",
     "nyc": "^13.3.0",
     "request": "^2.88.0"
   },
