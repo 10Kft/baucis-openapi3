@@ -203,6 +203,7 @@ module.exports = function () {
 
   // Convert a Mongoose type into an openAPI type
   function openApi30TypeFor(type) {
+    console.log("SGW111:", type, type.name, JSON.stringify(type));
 
     if (!type) {
       return null;
@@ -219,10 +220,12 @@ module.exports = function () {
     }
     if (type === String ||
       type === Date ||
-      type === mongoose.Schema.Types.ObjectId ||
+      type == mongoose.Schema.Types.ObjectId ||
       type instanceof mongoose.Schema.Types.ObjectId ||
-      type === mongoose.Types.ObjectId ||
+      type.name === "ObjectId" ||
+      type == mongoose.Types.ObjectId ||
       type instanceof mongoose.Types.ObjectId ||
+      type == mongoose.ObjectId ||
       type instanceof mongoose.ObjectId ||
       type === mongoose.Schema.Types.Oid ||
       type instanceof mongoose.Schema.Types.Oid) {
@@ -245,7 +248,6 @@ module.exports = function () {
       return null;
     }
 
-    console.log("SGW111:", type, JSON.stringify(type));
     //return 'string';
     throw new Error('Unrecognized type: ' + type);
   }
