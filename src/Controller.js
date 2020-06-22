@@ -203,6 +203,9 @@ module.exports = function () {
 
   // Convert a Mongoose type into an openAPI type
   function openApi30TypeFor(type) {
+
+    console.log("Type:", type);
+
     if (!type) {
       return null;
     }
@@ -229,7 +232,9 @@ module.exports = function () {
       type === mongoose.Schema.Types.Buffer) {
       return null;
     }
-    throw new Error('Unrecognized type: ' + type);
+
+    return 'string';
+    //throw new Error('Unrecognized type: ' + type);
   }
 
   function openApi30TypeFormatFor(type) {
