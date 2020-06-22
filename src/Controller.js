@@ -222,7 +222,7 @@ module.exports = function () {
       type === Date ||
       type == mongoose.Schema.Types.ObjectId ||
       type instanceof mongoose.Schema.Types.ObjectId ||
-      type.name === "ObjectId" ||
+      type.toString() === "ObjectId" ||
       type == mongoose.Types.ObjectId ||
       type instanceof mongoose.Types.ObjectId ||
       type == mongoose.ObjectId ||
