@@ -203,36 +203,22 @@ module.exports = function () {
 
   // Convert a Mongoose type into an openAPI type
   function openApi30TypeFor(type) {
-    console.log("SGW111:", type, type.name, JSON.stringify(type));
-
     if (!type) {
       return null;
     }
-    if (type === Number ||
-      type === mongoose.Schema.Types.Decimal128 ||
-      type instanceof mongoose.Schema.Types.Decimal128) {
+    if (type === Number) {
       return 'number';
     }
-    if (type === Boolean ||
-      type === mongoose.Schema.Types.Boolean ||
-      type instanceof mongoose.Schema.Types.Boolean) {
+    if (type === Boolean) {
       return 'boolean';
     }
     if (type === String ||
       type === Date ||
-      type == mongoose.Schema.Types.ObjectId ||
-      type instanceof mongoose.Schema.Types.ObjectId ||
-      type.toString() === "ObjectId" ||
-      type == mongoose.Types.ObjectId ||
-      type instanceof mongoose.Types.ObjectId ||
-      type == mongoose.ObjectId ||
-      type instanceof mongoose.ObjectId ||
-      type === mongoose.Schema.Types.Oid ||
-      type instanceof mongoose.Schema.Types.Oid) {
+      type === mongoose.Schema.Types.ObjectId ||
+      type === mongoose.Schema.Types.Oid) {
       return 'string';
     }
     if (type === mongoose.Schema.Types.Array ||
-      type instanceof mongoose.Schema.Types.Array ||
       Array.isArray(type) ||
       type.name === "Array") {
       return 'array';
@@ -240,15 +226,10 @@ module.exports = function () {
     if (type === Object ||
       type instanceof Object ||
       type === mongoose.Schema.Types.Mixed ||
-      type instanceof mongoose.Schema.Types.Mixed ||
-      type === mongoose.Mixed ||
-      type instanceof mongoose.Mixed ||
-      type === mongoose.Schema.Types.Buffer ||
-      type instanceof mongoose.Schema.Types.Buffer) {
+      type === mongoose.Schema.Types.Buffer) {
       return null;
     }
-
-    //return 'string';
+    if (type.toString() === "ObjectId") return 'string';
     throw new Error('Unrecognized type: ' + type);
   }
 
