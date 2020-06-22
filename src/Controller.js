@@ -223,6 +223,7 @@ module.exports = function () {
       type instanceof mongoose.Schema.Types.ObjectId ||
       type === mongoose.Types.ObjectId ||
       type instanceof mongoose.Types.ObjectId ||
+      type instanceof mongoose.ObjectId ||
       type === mongoose.Schema.Types.Oid ||
       type instanceof mongoose.Schema.Types.Oid) {
       return 'string';
